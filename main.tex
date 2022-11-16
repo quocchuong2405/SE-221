@@ -1,0 +1,470 @@
+\documentclass[a4paper]{article}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+%\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}  
+\usepackage{tcolorbox}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{tikz}
+\renewcommand{\baselinestretch}{1.5}
+\definecolor{llgray}{gray}{0.85}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=blue,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+	backgroundcolor = \color{llgray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    xleftmargin = 1cm,
+    xrightmargin = 1cm
+}
+\lstset{style=mystyle}
+\everymath{\color{black}}
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Ho Chi Minh City University of Technology}\\
+		\textbf{\bf \ttfamily Faculty of Computer Science and Engineering}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Software Engineering - AY 2022 - 2023}
+\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+VIETNAM NATIONAL UNIVERSITY - HO CHI MINH CITY \\
+UNIVERSITY OF TECHNOLOGY \\
+FACULTY OF COMPUTER SCIENCE AND ENGINEERING 
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.3\linewidth]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{l}{\textbf{{\Large SOFTWARE ENGINEERING}}}\\
+~~\\
+\hline
+\\
+\multicolumn{1}{l}{\textbf{{\large ASSIGNMENT - GROUP NAME: 3 diem qua mon}}}\\
+\\
+\textbf{{\LARGE URBAN WASTE COLLECTION AID - UWC 2.0}}\\
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{5 cm} & Under the guidance of: & Prof. Quan Thanh Tho\\
+& Accomplished by: & Nguyen Van Quoc Chuong - 1950004 \\
+& & Dau Gia Kien - 1952799 \\
+& & Nguyen Huy Hoang - 1852382 \\
+& & Le Tuan Minh - 2052821 \\
+& & Dam Ngoc Hieu - 2052469\\
+\end{tabular}
+\end{table}
+
+\begin{center}
+{\footnotesize HO CHI MINH CITY, 9/2022}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Urban waste management is one of several significant problems faced by many countries in the 
+world and thus considered one of the important points to be improved in Sustainable Development 
+Goal (SDG) 11: sustainable cities and communities and SDG 6: clean water and sanitation. Particular 
+attention is given to developing countries that continue to prioritize development and economic 
+growth. In urban context, solid waste management is costly and ineffective. Improvement of waste 
+collection and management is emphasized by governments and organizations for positive impacts on 
+cities, societies and environments
+\section{Requirement elicitation}
+\subsection{Task 1.1} 
+\textit{Solution:} 
+\begin{enumerate}
+    \item Context: Many countries are facing with urban waste management which is one of several significant problems. In urban area, solid waste management is costly and ineffective. That is the reason why UWC- 2.0 is created.
+    \item Stakeholders:
+        \begin{itemize}
+             \item Organization X
+             \item Service provider Y
+             \item Back officers
+             \item Janitors
+             \item Collectors
+        \end{itemize}
+    \item Current needs:
+        \begin{description}
+            \item[Organization X] need to develop an information management system called UWC 2.0.
+            \item[Service provider Y] need UWC 2.0 to improve efficiency of garbage collection.
+            \item[Back officers] need to have an overview of  janitors and collectors, their work calendar. They also have an overview of vehicles and their technical details (weight, capacity, fuel consumptions, etc). Moreover, they shoule have an overview of all MCPs and information about their capacity, assign vehicles to janitors and collectors and also assign them to MCPs. In additonal, Back officers have to create a route for each collector.
+            \item[Janitors and collectors] have an overview of their work calendar, a detail view of their task on a daily and weekly basic. They also are able to communicate with collectors, other janitors and back officers, are checked in or checked out task every day, and are notified about the MCPs if they are fully loaded.
+        \end{description}
+    \item Current problems:
+        \begin{description}
+            \item[Organization X:] no problem.
+            \item[Service provider Y:] shortage in efficiency of garbage collection.
+            \item[Back officers:] shortage information in janitors and collectors of work calendar, vehicles and their technical details, capacity of all MCPs.
+            \item[Janitors and collectors:] shortage information in their task on a daily and weekly basic. They also have problems in communicate with other collectors, janitors and back officers.
+        \end{description}
+    \item Benefits of UWC 2.0: This system can help all stakeholders with their problems which is mentioned above.
+\end{enumerate}    
+\subsection{Task 1.2}
+\begin{enumerate}
+\item Functional Requirements: 
+\begin{itemize}
+            \item 	Back Officers can see a brief work calendar of  janitors and collectors.
+            \item	Back Officers can see the details of vehicles.
+            \item	Back Officers can see the status of the MCPs about their capacity, The information should be updated every 15 minutes.
+            \item	Back Officers can assign vehicles to janitors and collectors.
+            \item	Back Officers can assign janitors and collectors to MCPs.
+            \item	Back Officers can make a route for each collector. The route is supported by the software to optimize the fuel and distance.
+            \item	Back Officers, Collectors and Janitors can message each other.
+            \item	Collectors and Janitors can view their work calendar.
+            \item	Collectors and Janitors can Have a detail view of their task on a daily and weekly basic.
+            \item	Collectors and Janitors can check in and check out task everyday.
+            \item	Collectors and janitors should be notified when the MCPs in their route is full loaded.
+\end{itemize}
+\item Non-functional Requirements:
+\begin{itemize}
+	        \item The UWC 2.0 should use the old database from the primal version.
+	        \item The Task Management should be inter-operable with the UWC 1.0 as much as possible.
+	        \item The UWC 2.0 should be an optimized app that is usable on all types of mobile devices, tablets or computers, and performs well on multiple platforms.
+	        \item All important information that are viewed by Janitors and Collectors should be in one page for convenience.
+        	\item Messages sent through UWC 2.0 should have a delay time less than 1 second.
+	        \item The system should be able to handle real-time data from at least 1000 MCPs in one moment and 10.000 MCPs in five years
+        	\item The interface should be in VietNamese.
+\end{itemize}
+\end{enumerate}
+The use case diagram for the system is \hyperlink{pic1}{as follows}
+\hypertarget{pic1}{
+\begin{figure}
+\centering
+  \includegraphics[width=1\linewidth]{usecase-system.png}
+  \caption{Use case diagram for the whole system}
+\end{figure}}
+\subsection{Task 1.3}
+The use case diagram for the Task Assignment Module is \hyperlink{pic2}{as below}\\
+\hypertarget{pic2}{
+\begin{figure}
+\centering
+  \includegraphics[width=1\linewidth]{usecase-tam.png}
+  \caption{Use case diagram for Task Assignment Module}
+\end{figure}}
+\begin{center}
+\begin{tabular}{|c|m{35em}|}
+    \hline
+    Author & Dau Gia Kien \\
+    \hline
+    Use case ID & 1 \\
+    \hline
+    Use case name & Create route\\
+    \hline
+    Description & Create a route \\ 
+    \hline
+    Actor(s) & Back officers \\ 
+    \hline
+    Pre-conditions & Have had calculated fuel consumption and distances before hand. \\ 
+    \hline
+    Post-conditions & A route will be created successfully \\ 
+    \hline
+    Normal flow
+&0. Use case begins when back officers click on “Create route”. \\
+&1. The system displays a form for the user to input new route information \\
+&\hspace{0.3cm}   • Distance \\
+&\hspace{0.3cm}   • Fuel consumption \\
+&2. Users click on the “create” button. \\
+    \hline
+    Exception flow & None \\ 
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|m{35em}|}
+    \hline
+    Author & Nguyen Van Quoc Chuong \\
+    \hline
+    Use case ID & 2 \\
+    \hline
+    Use case name & Assign task\\
+    \hline
+    Description & Assign a task for collectors and janitors \\ 
+    \hline
+    Actor(s) & Back officers \\ 
+    \hline
+    Pre-conditions & Back officers must be logged in to the application. \\ 
+    \hline
+    Post-conditions & Back officers must choose and select available collectors, janitors, MCPs, vehicles and a route. \\ 
+    \hline
+    Normal flow
+&0. Use case begins when back officers click on “Assign task”. \\
+&1. The system will ask the user to fill in the necessary information: \\
+&\hspace{0.3cm}   • Collectors, Janitors \\
+&\hspace{0.3cm}   • MCPs \\
+&\hspace{0.3cm}   • Vehicles \\
+&\hspace{0.3cm}   • Route \\
+&2. Users click on the “create” button. \\
+    \hline
+    Exception flow & None \\ 
+    \hline
+\end{tabular}
+\end{center}
+\hypertarget{activity}{
+\begin{figure}
+\centering
+  \includegraphics[width=1\linewidth]{ActivityDiagram1.png}
+  \caption{Activity diagram}
+\end{figure}}
+\begin{figure}
+\centering
+  \includegraphics[width=1\linewidth]{ActivityDiagram2.png}
+  \caption{Activity diagram}
+\end{figure}
+\newpage
+
+\section{System Modeling}
+\subsection{Task 2.1}
+$\textbf{Description}$ of \hyperlink{activity}{Activity diagram} for the business process between systems and the stakeholders in Task Assignment module. The module has the following activities:
+
+\begin{itemize}
+    \item View map
+    \item Assign MCP
+    \item Assign vehicle
+    \item Create/modify route
+    \item View tasks
+    \item Communicate
+\end{itemize}
+
+\subsection{Task 2.2}
+
+
+This section describe $\textbf{Conceptual solution}$ for route planning task and its \hyperlink{sequence}{sequence diagram}.
+\begin{itemize}
+    \item One MCP should have a certain amount of trash to be ready for pick up. Therefore, the lists of MCPs that are sent to the Back Officers should only contain MCPs that are ready. Route created by the app required to be optimized in term of fuel consumption and travel distance
+    \item Vehicle must have sufficient fuel, not broken, and can operate normally
+    \item The MCP full pattern (how long it usually take for an MCP to be filled) should be understood to perform route planning accordingly
+\end{itemize}
+
+\begin{description}
+\item[Description: ]
+\item[In this feature:]
+\item [First off] the back officer will receive a map of the working area generated by the app.
+\item [Sencondly] the back officer will send a request to a system in order for the system to choose which MCPs are ready to be picked up and make a list, then send it to the back officer.
+\item [Next off] the Back officer send another request to view the available vehicles, the system will send the list including available vehicles to the Back officer.
+\item [Lastly] The system will automatically make a route, and wait for the back officer to approve,
+If the back officer doesn't like the route he can destroy it and the system will make a new one instead.
+\end{description}
+
+\hypertarget{sequence}{
+\begin{figure}
+\centering
+  \includegraphics[width=1\linewidth]{SequenceDiagram.png}
+  \caption{Sequence diagram for route planning task}
+\end{figure}}
+
+\subsection{Task 2.3}
+\hypertarget{class}{
+\begin{figure}
+\hspace{-3cm}
+  \includegraphics[width=1.4\linewidth]{classdiagram.drawio.png}
+  \caption{Detailed class diagram for Task Assignment Module}
+\end{figure}}
+
+$\textbf{Description}$ of \hyperlink{class}{Class Diagram of Task Assignment Module}:
+\begin{itemize}
+    \item Back officer can use \textit{(Assign route)} to a dedicated task and \textit{(Assign task)} to the employees
+    \item \textit{(Task management)} contain relevant information to keep track with data in system. Tasks are assigned correspondingly to janitors and collectors. startdate and enddate attribute are decided when janitors or collectors begin and finish their task.
+    \item Each task is associated with a route, which is driven through by collectors to the MCPs.
+    \item Route is created with \textit{(route calculation)}, and the dominant influence are MCPs and vehicles. A route is gone through by only 1 vehicle piloted by 1 collector.
+    \item Vehicle, employees has a boolean attributes to keep track availability. They may not associated with any tasks or route which is indicated on the diagram by 0..1 relationship
+    \item \textit{(Update task info)} update \textit{(Task management)} whenever back officer make changes of employee, mcp and vehicles to the task
+    \item Many \textit{(janitor)} can belong to 1 task, but only 1 \textit{(collector)} belong to 1 task
+\end{itemize}
+
+\section{Architecture desgin}
+\subsection{Task 3.1}
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.6\linewidth]{architecture approach.png}
+  \hypertarget{MVC}{\caption{Architecture design pattern for the system}}
+\end{figure}
+
+
+We choose \hyperlink{MVC}{MVC design pattern} for our system, \hyperlink{module}{here} is our explaination about our system modules.
+\begin{itemize}
+    \item View
+    \begin{itemize}
+\item[$-$] \underline{For Back officer:}
+\item[$*$] Render icon, button, box,… for Log in or sign up Page 
+\item[$*$] After logging in, Render components for a Dashboard with Selections boxes to go into different Pages for overviewing : Vehicles, Information of Janitors and Collectors, Work Calendar, MCPs information. And Highlighted box for the next step: Assignment.
+\item[$*$] Render components for vehicles viewing page.
+\item[$*$] Render components for Janitors and Collectors viewing page.
+\item[$*$] Render components for Work Calendar viewing page.
+\item[$*$] Render components for MCPs information viewing page.
+\item[$*$] Render form, button, text, … for assignment page, with a special part for routing when assign tasks.
+\item[$*$] Render button, icon, … for a message box. 
+\item[$-$] \underline{For Janitors, Collectors:}
+\item[$*$] Render icon, button, box,… for Log in or sign up Page 
+\item[$*$] Render button,icon, box, text,… a Dashboard page to select to overview one of these : Work Calendar, Tasks and a Check in check out choice
+\item[$*$] Render components for Work Calendar page.
+\item[$*$] Render components for Tasks assigned page.
+\item[$*$] Render button, box,.. for Check in/Check out page.
+\item[$*$] Render button, icon,… for a message box.
+\item[$-$] Send events done by users back to the controller.
+\item[$-$] Send user data inputs back to the controller in order to process logic of the application. 
+\item[$-$] When asked to refresh state by model, take the data from model in order to refresh view and update the new view.
+
+    \end{itemize}
+    \item Controller
+    \begin{itemize}
+\item[$-$] Return a View of a page requested by the user.
+\item[$*$] Update the work calendar, Tasks,Vehicles and routes of Janitors and Collectors, The information of MCPs.
+\item[$*$] Delete Janitors and Collectors information, Vehicles information, Tasks, Route and Work Calendar, The information of MCPs.
+\item[$*$] Alternate Janitors and Collectors information, Vehicles information, Tasks, Route and Work Calendar, the information of MCPs.
+\item[$-$] Using methods from model to log in, sign up, and manage user information.
+    \end{itemize}
+
+    \item Model
+    \begin{itemize}
+\item Give us methods to interact with the database to log in, sign up, manage information of users.
+\item Give us methods to interact with the database such as update, delete, alternate.
+\item When the state of model changes it has to notify view so view can refresh and update.
+
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.8\linewidth]{module.png}
+  \hypertarget{module}{\caption{Modules and input/output/function for each module}}
+\end{figure}
+
+\subsection{Task 3.2}
+\hypertarget{component}{
+\begin{figure}
+\hspace{-3cm}
+  \includegraphics[width=1.4\linewidth]{component.png}
+  \caption{Component diagram for Task Assignment Module}
+\end{figure}}
+
+
+$\textbf{Description}$ of \hyperlink{component}{Component diagram for Task Assignment Module}: 
+\begin{itemize}
+    \item Model:
+    \begin{itemize}
+        \item Model components notify View component of state changes
+        \item Model component encapsulates application state    
+    \end{itemize}
+
+    \item View:
+    \begin{itemize}
+        \item View component Employee view, Vehicle view, Route view, Task assignment view belong to the Back officer. They help BA with task assigning.
+        \item View components requests model update from Model component and perform get methods to Controller component with users event.
+        \item View render Model to display data
+    \end{itemize}
+
+    \item Controller:
+    \begin{itemize}
+        \item Controller component maps users action and update the Model components
+        \item Controller tasks are as describe in section 3.1
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{80}
+
+\end{thebibliography}
+\end{document}
